@@ -48,13 +48,13 @@ This will save video recordings of the test runs in the directory `./cypress/vid
 
 Learn Japanese Words Chosen:
 
-1. Impossible
-2. Funny
-3. Science
-4. Love
-5. Beautiful
-6. To Read
-7. To Play
-8. Skeptical
-9. Polite
-10. Disciplined
+1. Impossible - bakana
+2. Funny - Okashī
+3. Science - Rika
+4. Love - ai
+5. ugly - minikui
+6. To Read - yomu
+7. To Play video games - Bideogēmu o shimasu
+8. Skeptical - Kaigi-teki 
+9. Polite - teinei
+10. Discipline - shitsuke 
