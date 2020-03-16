@@ -31,9 +31,9 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <nav>
-        <Link to='/login'>Login</Link>
+        <Link className="header-login-link" to='/login'><button className="header-login-button">Login Page</button></Link>
         {' '}
-        <Link to='/register'>Sign up</Link>
+        <Link className="header-signup-link" to='/register'><button className="header-signup-button">Sign up</button></Link>
       </nav>
     )
   }
@@ -42,10 +42,13 @@ class Header extends Component {
     return (
       <header>
         <h1>
-          <Link to='/'>
+          <Link className="header-title-link" to='/'>
             Spaced repetition
           </Link>
         </h1>
+        <p className="header-paragraph">
+          Practice learning a language with the spaced repetition revision technique.
+        </p>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

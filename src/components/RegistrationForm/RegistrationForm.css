@@ -1,0 +1,91 @@
+.registration-form, .LoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #fff;
+  padding: 2em 4em 2em;
+  max-width: 450px;
+  margin: 50px auto 0;
+  box-shadow: 0 0 1em #222;
+  border-radius: 2px;
+}
+.sign-up-h2 {
+  margin:0 0 50px 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  color:darken(#e5e5e5, 50%);
+  border-bottom:solid 1px #e5e5e5;
+}
+
+.registration-form-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.registration-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-label {
+  padding-bottom: 0.5em;
+}
+
+.registration-button-create {
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius: 1em;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+  font-size:16px;
+  margin-bottom: 0.5em;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.registration-button-create:hover {
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+.registration-button-create:active {
+	position:relative;
+	top:1px;
+}
+
+.Input {
+  width: 200px;
+  height: 40px;
+  border: 1px solid #b3cbb5;
+  border-radius: 0.3em;
+  font-size: 20px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+
+}
+
+.Label {
+  font-size: 18px;
+}
+
+@media (max-width: 500px) {
+  .registration-form, .LoginForm {
+    max-width: 90vw;
+  }
+
+  p {
+    max-width: 300px;
+  }
+
+}
+
+
+
+
+
+
