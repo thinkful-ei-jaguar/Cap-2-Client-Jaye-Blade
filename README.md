@@ -45,3 +45,16 @@ npm run cypress:run
 ```
 
 This will save video recordings of the test runs in the directory `./cypress/videos/`.
+
+Learn Japanese Words Chosen:
+
+1. Impossible
+2. Funny
+3. Science
+4. Love
+5. Beautiful
+6. To Read
+7. To Play
+8. Skeptical
+9. Polite
+10. Disciplined
