@@ -4,6 +4,7 @@ import LanguageService from '../../services/language-service'
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
+import './Dashboard.css'
 
 
 class Dashboard extends Component {
@@ -15,38 +16,15 @@ class Dashboard extends Component {
     words: [],
     error: null }
 
-  grabLanguage = () => {
-    fetch(`${config.API_ENDPOINT}/language`, {
-      method: 'GET',
-      headers: {
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-      .then(response => {
-        this.setState({
-          ...response
-        })
-      })
-      
-  }
-
-
   componentDidMount() {
-    this.grabLanguage()
+    this.context.grabLanguage()
   }
-
-  
 
   render () {
-    let vocabCards = this.state.words ? (this.state.words.map((word) => {
+    let vocabCards = this.context.words ? (this.context.words.map((word) => {
       console.log('Going through')
       return (
-        <li key={word.id}>
+        <li className="vocab-card" key={word.id}>
           <h4>{word.original}</h4>
           <p>correct answer count: {word.correct_count}</p>
           <p>incorrect answer count: {word.incorrect_count}</p>
@@ -55,16 +33,17 @@ class Dashboard extends Component {
     }
     )) : '';
     
+    
     return (
-      <>
-        <h2>{this.state.language.name}</h2>
-        <section>Total correct answers: {this.state.language.total_score}</section>
+      <div className="dashboard-header">
+        <h2>{this.context.language ? this.context.language.name : ''}</h2>
+        <section>Total correct answers: {this.context.language ? this.context.language.total_score : ''}</section>
         <Link to="/learn">Start practicing</Link>
         <h3>Words to practice</h3>
         <ul className="vocab-list">
           {vocabCards}
         </ul>
-      </>
+      </div>
     )
   }
 }

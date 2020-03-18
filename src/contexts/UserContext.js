@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
+import config from '../config'
 
 const UserContext = React.createContext({
   user: {},
@@ -11,6 +12,9 @@ const UserContext = React.createContext({
   setUser: () => {},
   processLogin: () => {},
   processLogout: () => {},
+  grabLanguage: () => {},
+  language: {},
+  words: []
 })
 
 export default UserContext
@@ -99,6 +103,28 @@ export class UserProvider extends Component {
       .catch(err => {
         this.setError(err)
       })
+  
+  
+  }
+
+  grabLanguage = () => {
+    fetch(`${config.API_ENDPOINT}/language`, {
+      method: 'GET',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(response => {
+        this.setState({
+          ...response
+        })
+      })
+      
   }
 
   render() {
@@ -110,6 +136,9 @@ export class UserProvider extends Component {
       setUser: this.setUser,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
+      grabLanguage: this.grabLanguage,
+      language: this.state.language,
+      words: this.state.words
     }
     return (
       <UserContext.Provider value={value}>
