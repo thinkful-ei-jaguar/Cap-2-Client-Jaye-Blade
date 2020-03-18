@@ -92,7 +92,7 @@ class RegistrationForm extends Component {
         </div>
         <footer className="registration-footer">
           <Button className="registration-button-create" type='submit'>
-            Create Account
+            Sign up
           </Button>
           {' '}
           <Link to='/login'>Already have an account?</Link>

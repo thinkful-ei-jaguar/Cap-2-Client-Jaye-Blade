@@ -13,8 +13,13 @@ const UserContext = React.createContext({
   processLogin: () => {},
   processLogout: () => {},
   grabLanguage: () => {},
+  grabNextWord: () => {},
   language: {},
-  words: []
+  words: [],
+  nextWord: '',
+  totalScore: 0,
+  wordCorrectCount: 0,
+  wordIncorrectCount: 0
 })
 
 export default UserContext
@@ -103,8 +108,6 @@ export class UserProvider extends Component {
       .catch(err => {
         this.setError(err)
       })
-  
-  
   }
 
   grabLanguage = () => {
@@ -124,6 +127,26 @@ export class UserProvider extends Component {
           ...response
         })
       })
+  }
+
+  grabNextWord = () => {
+    fetch(`${config.API_ENDPOINT}/language/head`, {
+      method: 'GET',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(response => {
+        console.log(response)
+        this.setState({
+          ...response
+        })
+      })
       
   }
 
@@ -137,8 +160,13 @@ export class UserProvider extends Component {
       processLogin: this.processLogin,
       processLogout: this.processLogout,
       grabLanguage: this.grabLanguage,
+      grabNextWord: this.grabNextWord,
       language: this.state.language,
-      words: this.state.words
+      words: this.state.words,
+      nextWord: this.state.nextWord,
+      totalScore: this.state.totalScore,
+      wordCorrectCount: this.state.wordCorrectCount,
+      wordIncorrectCount: this.state.wordIncorrectCount
     }
     return (
       <UserContext.Provider value={value}>
