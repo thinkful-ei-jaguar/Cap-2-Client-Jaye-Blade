@@ -40,47 +40,59 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <form
+      
+      <form className="registration-form"
         onSubmit={this.handleSubmit}
       >
+        
+        <h2 className='sign-up-h2'>Sign up</h2>
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div>
-          <Label htmlFor='registration-name-input'>
+        <div className="registration-form-div">
+          <Label 
+          className='registration-label'
+          htmlFor='registration-name-input'>
             Enter your name<Required />
           </Label>
           <Input
             ref={this.firstInput}
             id='registration-name-input'
             name='name'
+            className='registration-input'
             required
           />
         </div>
-        <div>
-          <Label htmlFor='registration-username-input'>
+        <div className="registration-form-div">
+          <Label 
+          htmlFor='registration-username-input'
+          className='registration-label'>
             Choose a username<Required />
           </Label>
           <Input
             id='registration-username-input'
             name='username'
+            className='registration-input'
             required
           />
         </div>
-        <div>
-          <Label htmlFor='registration-password-input'>
+        <div className="registration-form-div">
+          <Label 
+          htmlFor='registration-password-input'
+          className='registration-label'>
             Choose a password<Required />
           </Label>
           <Input
             id='registration-password-input'
             name='password'
             type='password'
+            className='registration-input'
             required
           />
         </div>
-        <footer>
-          <Button type='submit'>
-            Sign up
+        <footer className="registration-footer">
+          <Button className="registration-button-create" type='submit'>
+            Create Account
           </Button>
           {' '}
           <Link to='/login'>Already have an account?</Link>

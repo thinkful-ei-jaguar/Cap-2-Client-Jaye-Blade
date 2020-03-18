@@ -43,15 +43,19 @@ class LoginForm extends Component {
   render() {
     const { error } = this.state
     return (
+      
       <form
         className='LoginForm'
         onSubmit={this.handleSubmit}
       >
+        <h2 className="sign-up-h2">Login Form</h2>
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div>
-          <Label htmlFor='login-username-input'>
+        <div className="registration-form-div">
+          <Label 
+          className="registration-label"
+          htmlFor='login-username-input'>
             Username
           </Label>
           <Input
@@ -61,8 +65,10 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <div>
-          <Label htmlFor='login-password-input'>
+        <div className="registration-form-div">
+          <Label 
+            className="registration-label"
+            htmlFor='login-password-input'>
             Password
           </Label>
           <Input
@@ -72,7 +78,7 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button type='submit'>
+        <Button className="registration-button-create" type='submit'>
           Login
         </Button>
       </form>
