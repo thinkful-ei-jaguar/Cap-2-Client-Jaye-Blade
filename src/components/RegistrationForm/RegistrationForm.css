@@ -73,6 +73,10 @@
   font-size: 18px;
 }
 
+.already-have {
+  font-size: 19px;
+}
+
 @media (max-width: 500px) {
   .registration-form, .LoginForm {
     max-width: 90vw;
