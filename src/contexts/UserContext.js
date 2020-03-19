@@ -19,8 +19,10 @@ const UserContext = React.createContext({
   words: [],
   nextWord: '',
   totalScore: 0,
+  answer: '',
   wordCorrectCount: 0,
-  wordIncorrectCount: 0
+  wordIncorrectCount: 0,
+  isCorrect: false
 })
 
 export default UserContext
@@ -151,7 +153,6 @@ export class UserProvider extends Component {
   }
 
   postGuess = (guess) => {
-    console.log(JSON.stringify(guess))
     fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: 'POST',
       headers: {
@@ -166,7 +167,15 @@ export class UserProvider extends Component {
           : res.json()
       )
       .then(response => {
-        console.log(response)
+        console.log(response.answer)
+        this.setState({
+          nextWord: response.nextWord,
+          wordCorrectCount: response.wordCorrectCount,
+          wordIncorrectCount: response.wordIncorrectCount,
+          answer: response.answer,
+          isCorrect: response.isCorrect,
+          totalScore: response.totalScore
+        })
       })
   }
 
@@ -187,7 +196,9 @@ export class UserProvider extends Component {
       nextWord: this.state.nextWord,
       totalScore: this.state.totalScore,
       wordCorrectCount: this.state.wordCorrectCount,
-      wordIncorrectCount: this.state.wordIncorrectCount
+      wordIncorrectCount: this.state.wordIncorrectCount,
+      isCorrect: this.state.isCorrect,
+      answer: this.state.answer
     }
     return (
       <UserContext.Provider value={value}>

@@ -90,17 +90,17 @@ describe(`User story: Answer feedback`, function() {
               'have.text',
               `Your total score is: ${incorrectFixture.totalScore}`,
             )
-          cy.get('h2')
+          cy.get('h2.answer-response')
             .should(
               'have.text',
               `Good try, but not quite right :(`,
             )
-          cy.get('.DisplayFeedback p')
+          cy.get('p.DisplayFeedback')
             .should(
               'have.text',
               `The correct translation for ${languageHeadFixture.nextWord} was ${incorrectFixture.answer} and you chose ${guess}!`,
             )
-          cy.get('button')
+          cy.get('button.try-another-button')
             .should(
               'have.text',
               `Try another word!`,
@@ -144,17 +144,17 @@ describe(`User story: Answer feedback`, function() {
               'have.text',
               `Your total score is: ${incorrectFixture.totalScore}`,
             )
-          cy.get('h2')
+          cy.get('h2.answer-response')
             .should(
               'have.text',
               `You were correct! :D`,
             )
-          cy.get('.DisplayFeedback p')
+          cy.get('p.DisplayFeedback')
             .should(
               'have.text',
               `The correct translation for ${languageHeadFixture.nextWord} was ${incorrectFixture.answer} and you chose ${guess}!`,
             )
-          cy.get('button')
+          cy.get('button.try-another-button')
             .should(
               'have.text',
               `Try another word!`,
