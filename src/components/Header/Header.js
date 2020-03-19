@@ -15,13 +15,13 @@ class Header extends Component {
     return (
       <div>
         <span>
-          {this.context.user.name}
+          <h2 className="welcome-message">Welcome back, {this.context.user.name}!</h2>
         </span>
         <nav>
           <Link
             onClick={this.handleLogoutClick}
             to='/login'>
-            Logout
+            <button className="header-login-button">Logout</button>
           </Link>
         </nav>
       </div>
@@ -46,9 +46,9 @@ class Header extends Component {
             Spaced repetition
           </Link>
         </h1>
-        <div className="header-paragraph">
+        <p className="header-paragraph">
           Practice learning a language with the spaced repetition revision technique.
-        </div>
+        </p>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

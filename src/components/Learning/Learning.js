@@ -10,7 +10,6 @@ export default class Learning extends Component {
   state = {
     guess: '',
     guessMade: false,
-    previousWord: '',
     currentWord: ''
   }
 
@@ -63,12 +62,12 @@ export default class Learning extends Component {
 
         <div className="correctly-div">
           {!this.state.guessMade ? (`You have answered this word correctly ${this.context.wordCorrectCount} times.`) 
-          : 'This would be haiku'}
+          : ''}
         </div>
 
         <div className="incorrectly-div">
         {!this.state.guessMade ? (`You have answered this word incorrectly ${this.context.wordIncorrectCount} times.`) 
-        : 'If the next line was not lame'}
+        : ''}
         </div>
 
         <p className="DisplayScore">Your total score is: {this.context.totalScore}</p>
@@ -78,17 +77,17 @@ export default class Learning extends Component {
             What's the translation for this word?
           </label>
           <input type="text" id="learn-guess-input" name="guess" onChange={this.updateGuess} value={this.state.guess} required />  
-          <button disabled={this.state.guessMade} type="submit">
+          <button className="header-login-button" disabled={this.state.guessMade} type="submit">
             Submit your answer
           </button>
         </form>
-        <h2 className="answer-response">
+        <h3 className="answer-response">
           {this.state.guessMade ? this.context.isCorrect ? 'You were correct! :D' : 'Good try, but not quite right :(' : ''}
-        </h2>
+        </h3>
       
           {this.state.guessMade ? 
-          <><button className="try-another-button" onClick={this.tryAnotherWord}>Try another word!</button> 
-          <p className="DisplayFeedback">The correct translation for {this.state.currentWord} was {this.context.answer ? this.context.answer : ''} and you chose {this.state.guess}!</p></>
+          <><button className="try-another-button header-login-button" onClick={this.tryAnotherWord}>Try another word!</button> 
+          <p className="DisplayFeedback">The correct translation for "{this.state.currentWord}" was {this.context.answer ? this.context.answer : ''} and you chose "{this.state.guess}"!</p></>
           : ''}
       </div>
     )

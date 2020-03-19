@@ -35,9 +35,14 @@ class Dashboard extends Component {
     
     return (
       <div className="dashboard-header">
-        <h2>{this.context.language ? this.context.language.name : ''}</h2>
-        <section>Total correct answers: {this.context.language ? this.context.language.total_score : ''}</section>
-        <Link to="/learn">Start practicing</Link>
+        <h2 className="language-title">{this.context.language ? this.context.language.name : ''}</h2>
+        
+        <section className="poor-little-guy">
+          Total correct answers: 
+          {this.context.language ? this.context.language.total_score : ''}
+        </section>
+
+        <Link to="/learn"><button className="header-login-button">Start practicing</button></Link>
         <h3>Words to practice</h3>
         <ul className="vocab-list">
           {vocabCards}

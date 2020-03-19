@@ -20,8 +20,25 @@ li.vocab-card {
   align-items: center;
 }
 
+.poor-little-guy {
+  margin-bottom: 1.0em;
+  font-size: 19px;
+}
+
 @media (max-width: 500px) {
   .vocab-card {
     max-width: 90vw;
   }
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+label {
+  font-size: 19px;
 }

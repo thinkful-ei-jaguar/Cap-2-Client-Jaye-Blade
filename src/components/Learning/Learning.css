@@ -2,6 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+}
+
+form.learning-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.learning-form > * {
+  margin-bottom: 1em;
+}
+
+.learning-section {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+#learn-guess-input {
+  font-size: 19px;
 }
 
 li.vocab-card {
@@ -21,4 +42,17 @@ h4 {
 
 .correctly-div {
   margin-bottom: 1em;
+  font-size: 19px;
+  text-align: center;
+}
+
+.incorrectly-div {
+  text-align: center;
+  font-size: 19px;
+}
+
+@media (max-width: 500px) {
+  .learning-div {
+    max-width: 90vw;
+  }
 }
