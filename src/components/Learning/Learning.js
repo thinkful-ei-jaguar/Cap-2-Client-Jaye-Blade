@@ -10,11 +10,15 @@ export default class Learning extends Component {
   state = {
     guess: '',
     guessMade: false,
-    previousWord: ''
+    previousWord: '',
+    currentWord: ''
   }
 
   componentDidMount() {
     this.context.grabNextWord()
+    this.setState({
+      currentWord: this.context.nextWord
+    })
   }
 
   updateGuess = (event) => {
@@ -29,9 +33,18 @@ export default class Learning extends Component {
     event.preventDefault()
     this.setState({
       guessMade: true,
-      previousWord: this.context.nextWord
+      currentWord: this.context.nextWord
     })
     this.context.postGuess({guess: this.state.guess})
+  }
+
+  tryAnotherWord = (event) => {
+    event.preventDefault()
+    this.setState({
+      guess: '',
+      guessMade: false,
+      currentWord: ''
+    })
   }
 
   render() {
@@ -39,13 +52,24 @@ export default class Learning extends Component {
       <div className="learning-div">
         <h2>Translate the word:</h2>
 
-        <span className="learn-word">
-          {this.context.nextWord ? this.context.nextWord : ''}  
+        <span className="learn-word"> 
+          {this.context.nextWord && !this.state.guessMade ? 
+          this.context.nextWord 
+          : 
+          this.context.nextWord && this.state.currentWord && this.state.guessMade ? 
+          this.state.currentWord : ''  
+        }  
         </span>
 
-        <div>You have answered this word correctly {this.context.wordCorrectCount} times.</div>
+        <div className="correctly-div">
+          {!this.state.guessMade ? (`You have answered this word correctly ${this.context.wordCorrectCount} times.`) 
+          : 'This would be haiku'}
+        </div>
 
-        <div>You have answered this word incorrectly {this.context.wordIncorrectCount} times.</div>
+        <div className="incorrectly-div">
+        {!this.state.guessMade ? (`You have answered this word incorrectly ${this.context.wordIncorrectCount} times.`) 
+        : 'If the next line was not lame'}
+        </div>
 
         <p className="DisplayScore">Your total score is: {this.context.totalScore}</p>
 
@@ -61,8 +85,11 @@ export default class Learning extends Component {
         <h2 className="answer-response">
           {this.state.guessMade ? this.context.isCorrect ? 'You were correct! :D' : 'Good try, but not quite right :(' : ''}
         </h2>
-        <p className="DisplayFeedback">The correct translation for {this.state.previousWord} was {this.context.answer ? this.context.answer : ''} and you chose {this.state.guess}!</p>
-          {this.state.guessMade ? <button className="try-another-button">Try another word!</button> : ''}
+      
+          {this.state.guessMade ? 
+          <><button className="try-another-button" onClick={this.tryAnotherWord}>Try another word!</button> 
+          <p className="DisplayFeedback">The correct translation for {this.state.currentWord} was {this.context.answer ? this.context.answer : ''} and you chose {this.state.guess}!</p></>
+          : ''}
       </div>
     )
   }

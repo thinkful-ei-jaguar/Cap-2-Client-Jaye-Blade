@@ -167,7 +167,7 @@ export class UserProvider extends Component {
           : res.json()
       )
       .then(response => {
-        console.log(response.answer)
+        console.log(response)
         this.setState({
           nextWord: response.nextWord,
           wordCorrectCount: response.wordCorrectCount,

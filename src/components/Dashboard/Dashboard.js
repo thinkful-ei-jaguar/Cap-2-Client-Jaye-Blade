@@ -22,7 +22,6 @@ class Dashboard extends Component {
 
   render () {
     let vocabCards = this.context.words ? (this.context.words.map((word) => {
-      console.log('Going through')
       return (
         <li className="vocab-card" key={word.id}>
           <h4>{word.original}</h4>
