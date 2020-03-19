@@ -14,12 +14,15 @@ const UserContext = React.createContext({
   processLogout: () => {},
   grabLanguage: () => {},
   grabNextWord: () => {},
+  postGuess: () => {},
   language: {},
   words: [],
   nextWord: '',
   totalScore: 0,
+  answer: '',
   wordCorrectCount: 0,
-  wordIncorrectCount: 0
+  wordIncorrectCount: 0,
+  isCorrect: false
 })
 
 export default UserContext
@@ -147,7 +150,33 @@ export class UserProvider extends Component {
           ...response
         })
       })
-      
+  }
+
+  postGuess = (guess) => {
+    fetch(`${config.API_ENDPOINT}/language/guess`, {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(guess)
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(response => {
+        console.log(response.answer)
+        this.setState({
+          nextWord: response.nextWord,
+          wordCorrectCount: response.wordCorrectCount,
+          wordIncorrectCount: response.wordIncorrectCount,
+          answer: response.answer,
+          isCorrect: response.isCorrect,
+          totalScore: response.totalScore
+        })
+      })
   }
 
   render() {
@@ -161,12 +190,15 @@ export class UserProvider extends Component {
       processLogout: this.processLogout,
       grabLanguage: this.grabLanguage,
       grabNextWord: this.grabNextWord,
+      postGuess: this.postGuess,
       language: this.state.language,
       words: this.state.words,
       nextWord: this.state.nextWord,
       totalScore: this.state.totalScore,
       wordCorrectCount: this.state.wordCorrectCount,
-      wordIncorrectCount: this.state.wordIncorrectCount
+      wordIncorrectCount: this.state.wordIncorrectCount,
+      isCorrect: this.state.isCorrect,
+      answer: this.state.answer
     }
     return (
       <UserContext.Provider value={value}>

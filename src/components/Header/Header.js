@@ -46,9 +46,9 @@ class Header extends Component {
             Spaced repetition
           </Link>
         </h1>
-        <p className="header-paragraph">
+        <div className="header-paragraph">
           Practice learning a language with the spaced repetition revision technique.
-        </p>
+        </div>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
