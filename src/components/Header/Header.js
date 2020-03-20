@@ -46,7 +46,7 @@ class Header extends Component {
         <div className='words'>
         <h1>
           <Link className="header-title-link" to='/'>
-            Spaced Repetition
+            Weebify
           </Link>
         </h1>
         <p className="header-paragraph">
