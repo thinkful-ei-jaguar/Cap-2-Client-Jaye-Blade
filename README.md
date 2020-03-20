@@ -1,5 +1,7 @@
 # Spaced Repetition Capstone
 
+## Live Link: [Spaced Repetition] (https://weebify.bladeboles.now.sh)
+
 ## Setup
 
 To setup the application
@@ -46,15 +48,3 @@ npm run cypress:run
 
 This will save video recordings of the test runs in the directory `./cypress/videos/`.
 
-Learn Japanese Words Chosen:
-
-1. Impossible - bakana
-2. Funny - Okashī
-3. Science - Rika
-4. Love - ai
-5. ugly - minikui
-6. To Read - yomu
-7. To Play video games - Bideogēmu o shimasu
-8. Skeptical - Kaigi-teki 
-9. Polite - teinei
-10. Discipline - shitsuke 
