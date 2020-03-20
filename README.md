@@ -1,4 +1,4 @@
-# Spaced Repetition Capstone
+# Weebify
 
 ## Written by Blade Boles and Jaye Laguardia
 
