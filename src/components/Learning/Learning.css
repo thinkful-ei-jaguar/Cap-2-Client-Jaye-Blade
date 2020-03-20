@@ -27,10 +27,15 @@ form.learning-form {
 li.vocab-card {
   margin-bottom: 1.5em;
   border-radius: 1em;
+  background-color: whitesmoke;
+  background-image: url('./flower2.jpg');
+  background-size: 450px;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 1em #222;
 }
 
 h4 {
-  color: #942911;
+  color: #d0451b;
 }
 
 .learn-word {

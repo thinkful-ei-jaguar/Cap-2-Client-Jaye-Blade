@@ -38,7 +38,7 @@ class Dashboard extends Component {
         <h2 className="language-title">{this.context.language ? this.context.language.name : ''}</h2>
         
         <section className="poor-little-guy">
-          Total correct answers: 
+          Total correct answers: {' '}
           {this.context.language ? this.context.language.total_score : ''}
         </section>
 

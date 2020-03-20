@@ -23,6 +23,8 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header />
+        <div className='thesetwo'>
+        <div className='background'></div>
         <main>
           {hasError && (
             <p>There was an error! Oh no!</p>
@@ -50,6 +52,8 @@ export default class App extends Component {
             />
           </Switch>
         </main>
+        <div className='emptybox'></div>
+        </div>
       </div>
     );
   }

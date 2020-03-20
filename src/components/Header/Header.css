@@ -3,6 +3,34 @@ header {
   flex-direction: column;
 	align-items: center;
 	border-bottom: 1px solid black;
+	position: relative;
+}
+
+.words {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	position: absolute;
+	z-index: 3;
+}
+
+.headerback {
+	background-image: url('./waves.jpg');
+	background-size: 500px;
+	position: absolute;
+	z-index: auto;
+	min-height: 250px;
+	width: 100vw;
+}
+
+.box {
+	position: absolute;
+	width: 700px;
+	min-height: 250px;
+	background-color: white;
+	opacity: 0.5;
+	text-align: center;
+	z-index: 1;
 }
 
 nav {
@@ -58,3 +86,8 @@ h2.welcome-message {
 	top:1px;
 }
 
+@media (max-width: 714px){
+	.headerback, .box {
+		height: 42vh;
+	}
+}

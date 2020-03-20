@@ -12,6 +12,16 @@ li.vocab-card {
   list-style-type: none;
   border: 1px solid black;
   width: 450px;
+  height: 200px;
+}
+
+li > h4 {
+  margin: 30px;
+}
+
+li > p {
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .dashboard-header {
@@ -23,6 +33,11 @@ li.vocab-card {
 .poor-little-guy {
   margin-bottom: 1.0em;
   font-size: 19px;
+  margin-top: 0px;
+}
+
+.language-title {
+  margin-top: 0;
 }
 
 @media (max-width: 500px) {
