@@ -61,7 +61,11 @@ section {
 
 @media (max-width: 714px){
   section {
-		margin-top: 350px;
+		margin-top: 290px;
+  }
+  
+  h2.language-title {
+    padding-top: none;
 	}
 }
 
