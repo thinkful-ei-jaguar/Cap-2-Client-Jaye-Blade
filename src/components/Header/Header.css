@@ -88,6 +88,11 @@ h2.welcome-message {
 
 @media (max-width: 714px){
 	.headerback, .box {
-		height: 42vh;
+		height: 32vh;
+	}
+	p.header-paragraph {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		font-size: 16px;
 	}
 }

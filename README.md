@@ -1,6 +1,22 @@
-# Spaced Repetition Capstone
+# Weebify
 
-## Setup
+## Written by Blade Boles and Jaye Laguardia
+
+## Live Link: [Weebify](https://weebify.bladeboles.now.sh)
+
+## API Repo Link: [Api Repo](https://github.com/thinkful-ei-jaguar/Cap-2-Server-Jaye-Blade)
+
+### About
+The user can learn Japanese vocabulary using spaced repetition learning technique.  A user is presented with a vocabulary "card" and is allowed to enter a guess.  If the guess is correct, the user will be quizzed on that word later.  If the guess is incorrect, they will be quizzed sooner.
+
+### Tech Stacks
+- React
+- Javascript
+- HTML5
+- CSS3
+- Zeit
+
+### Setup
 
 To setup the application
 
@@ -11,11 +27,11 @@ The project expects you have the Spaced repetition API project setup and running
 
 Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
 
-## Running project
+### Running project
 
 This is a `create-react-app` project so `npm start` will start the project in development mode with hot reloading by default.
 
-## Running the tests
+### Running the tests
 
 This project uses [Cypress IO](https://docs.cypress.io) for integration testing using the Chrome browser.
 
@@ -46,15 +62,3 @@ npm run cypress:run
 
 This will save video recordings of the test runs in the directory `./cypress/videos/`.
 
-Learn Japanese Words Chosen:
-
-1. Impossible - bakana
-2. Funny - Okashī
-3. Science - Rika
-4. Love - ai
-5. ugly - minikui
-6. To Read - yomu
-7. To Play video games - Bideogēmu o shimasu
-8. Skeptical - Kaigi-teki 
-9. Polite - teinei
-10. Discipline - shitsuke 
